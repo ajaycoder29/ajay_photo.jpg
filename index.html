@@ -1,157 +1,391 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajay Sharma | Professional Data Analyst</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        /* Custom styles for a polished look */
-        .skill-badge {
-            @apply px-4 py-2 bg-indigo-100 text-indigo-800 rounded-full font-semibold text-sm transition duration-300 ease-in-out hover:bg-indigo-200;
-        }
-        /* Style for the photo to handle the background */
-        .profile-photo {
-            object-fit: cover;
-            object-position: top;
-            width: 100%;
-            height: 100%;
-        }
-    </style>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Ajay Sharma | Data Analyst Portfolio</title>
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Chart.js for live dashboard -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <!-- PapaParse for CSV upload (optional) -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
+  <style>
+    /* Extra custom styles */
+    :root{
+      --bg:#071428;
+      --card:#0b1a2b;
+      --muted:#9fb0c8;
+      --accent:#06b6d4;
+      --accent-2:#3b82f6;
+    }
+    html,body { background:var(--bg); color:#e6f0fb; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial; }
+    .skill-badge { padding:6px 12px; background:rgba(59,130,246,0.12); color:var(--accent-2); border-radius:9999px; font-weight:600; font-size:0.85rem; }
+    .card { background:linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.01)); border:1px solid rgba(255,255,255,0.04); padding:1.25rem; border-radius:12px; box-shadow: 0 8px 24px rgba(2,6,23,0.6); }
+    . ajay profile { object-fit:cover; width:100%; height:100%; display:block; }
+    ajay_photo.jpg { color:var(--accent-2); text-decoration:underline; text-underline-offset:3px; }
+    .muted { color:var(--muted); }
+    /* Small helpers */
+    pre.code-block { background: rgba(255,255,255,0.02); padding:12px; border-radius:8px; overflow:auto; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, "Roboto Mono", monospace; font-size:0.85rem; }
+    .tag { background: rgba(6,182,212,0.12); color:var(--accent); padding:6px 10px; border-radius:8px; font-weight:600; font-size:0.85rem; margin-right:6px; }
+  </style>
 </head>
-<body class="bg-gray-50 text-gray-800 font-sans">
+<body>
 
-    <header class="bg-white shadow-md">
-        <div class="container mx-auto px-4 py-6 flex justify-between items-center">
-            <div class="text-2xl font-bold text-indigo-600">Ajay Sharma</div>
-            <nav>
-                <a href="#about" class="text-gray-600 hover:text-indigo-600 px-3 transition">About</a>
-                <a href="#skills" class="text-gray-600 hover:text-indigo-600 px-3 transition">Skills</a>
-                <a href="#contact" class="text-gray-600 hover:text-indigo-600 px-3 transition">Contact</a>
-            </nav>
+  <!-- Header -->
+  <header class="py-6 border-b border-white/6">
+    <div class="container mx-auto px-4 flex items-center justify-between">
+      <div>
+        <h1 class="text-2xl font-extrabold" style="color:var(--accent-2)">Ajay Sharma <span class="text-sm muted">| Data Analyst</span></h1>
+        <p class="text-sm muted">Turning messy data into clear decisions • SQL • Power BI • Excel • MongoDB</p>
+      </div>
+      <nav class="flex gap-4 items-center">
+        <a href="#about" class="muted hover:text-white">About</a>
+        <a href="#projects" class="muted hover:text-white">Projects</a>
+        <a href="#dashboard" class="muted hover:text-white">Live Dashboard</a>
+        <a href="#contact" class="text-sm bg-gradient-to-r from-indigo-600 to-cyan-500 px-4 py-2 rounded-md shadow-md font-semibold">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container mx-auto px-4 py-10">
+
+    <!-- About -->
+    <section id="about" class="grid md:grid-cols-3 gap-8 items-center mb-10">
+      <div class="md:col-span-2">
+        <h2 class="text-4xl font-extrabold mb-3">Hi, I'm <span style="color:var(--accent-2)">AJAY</span></h2>
+        <p class="muted mb-4 text-lg">
+          I'm a passionate Data Analyst who loves turning messy datasets into actionable insights. I specialize in data cleaning, transformation, exploratory analysis, and dashboarding using tools like <strong>SQL, Excel, Power BI, MongoDB</strong>, and visualization libraries. I build reproducible workflows, interactive dashboards, and clear reports that help teams make faster, data-driven decisions.
+        </p>
+
+        <ul class="space-y-2">
+          <li><strong class="text-white">What I do:</strong> Data cleaning & preprocessing, dashboarding, SQL & database design, exploratory analysis, reporting for stakeholders.</li>
+          <li><strong class="text-white">Focus on:</strong> Retail & e-commerce analytics, sales analysis, student performance dashboards, small business reporting.</li>
+        </ul>
+
+        <div class="mt-6 flex gap-3">
+          <a href="https://www.linkedin.com/in/ajay-sharma-0738b3372" target="_blank" class="px-4 py-2 rounded-md bg-indigo-600 hover:bg-indigo-700 font-semibold shadow">LinkedIn</a>
+          <a href="#projects" class="px-4 py-2 rounded-md border border-white/10 hover:bg-white/5">View Projects</a>
         </div>
-    </header>
+      </div>
 
-    <main class="container mx-auto px-4 py-12">
-        <section class="grid md:grid-cols-3 gap-10 items-center mb-16 bg-white p-8 rounded-xl shadow-lg" id="about">
-            <div class="md:col-span-2">
-                <h1 class="text-5xl font-extrabold text-gray-900 mb-3">Hi, I'm Ajay Sharma</h1>
-                <p class="text-xl font-medium text-indigo-600 mb-6">
-                    Data is the New Oil: Driving Decisions with Intelligence.
-                </p>
-                <p class="text-lg text-gray-700 leading-relaxed">
-                    As a dedicated Data Analyst, I am focused on transforming raw, complex data into clear, actionable insights that drive business growth. My passion lies in **uncovering hidden patterns** and **creating robust analytical solutions**. I specialize in end-to-end data analysis, from cleaning and processing large datasets to building intuitive dashboards and comprehensive reports.
-                </p>
-                <div class="mt-8 flex space-x-4">
-                    <a href="https://www.linkedin.com/in/ajay-sharma-0738b3372?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="bg-indigo-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition shadow-md">
-                        View LinkedIn
-                    </a>
-                    <a href="#contact" class="border border-indigo-600 text-indigo-600 px-6 py-3 rounded-lg font-semibold hover:bg-indigo-50 transition">
-                        Get In Touch
-                    </a>
-                </div>
-            </div>
-            
-            <div class="md:col-span-1 flex justify-center">
-                <div class="w-64 h-64 rounded-full overflow-hidden border-4 border-indigo-500 shadow-2xl">
-                    <img src="ajay_photo.jpg" alt="Ajay Sharma Profile Photo" class="profile-photo">
-                </div>
-            </div>
-        </section>
-
-        <section class="mb-16" id="skills">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-indigo-500 pb-2">🛠️ Technical Skills</h2>
-            <div class="flex flex-wrap gap-3">
-                <span class="skill-badge">SQL (Advanced)</span>
-                <span class="skill-badge">Microsoft Excel</span>
-                <span class="skill-badge">Power BI</span>
-                <span class="skill-badge">MongoDB</span>
-                <span class="skill-badge">Tableau</span>
-                <span class="skill-badge">Data Cleaning & Preparation</span>
-                <span class="skill-badge">Data Visualization</span>
-                <span class="skill-badge">Reporting & Dashboarding</span>
-            </div>
-        </section>
-
-        <section class="mb-16" id="projects">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-indigo-500 pb-2">⭐ Data Analytics Projects</h2>
-            <div class="bg-yellow-50 border-l-4 border-yellow-500 text-yellow-800 p-4 rounded-lg">
-                <p class="font-semibold">⚠️ IMPORTANT: Increase your job opportunities by adding projects here!</p>
-                <p class="text-sm">This is the most crucial part for recruiters. Please replace this box with at least 3 detailed project cards (e.g., Sales Dashboard, Customer Segmentation Analysis, Web Scraping for Data).</p>
-                <ul class="list-disc ml-5 mt-2 text-sm">
-                    <li>**Project Idea:** "Global Sales Dashboard in Power BI" (Link to the dashboard/GitHub code)</li>
-                    <li>**Project Idea:** "MongoDB Data Analysis for E-commerce Trends" (Link to code/report)</li>
-                    <li>**Project Idea:** "Tableau Visualization of Financial Data" (Link to Tableau Public)</li>
-                </ul>
-            </div>
-        </section>
-
-        <section class="bg-white p-8 rounded-xl shadow-lg" id="contact">
-            <h2 class="text-3xl font-bold text-gray-900 mb-6 border-b-2 border-indigo-500 pb-2">🤝 Let's Connect</h2>
-            <p class="text-lg text-gray-700 mb-6">I am currently open to new data analyst opportunities and collaborations. Feel free to reach out directly or use the form below to submit an inquiry.</p>
-
-            <div class="grid md:grid-cols-2 gap-8">
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">My Profiles</h3>
-                    <ul class="space-y-3">
-                        <li>
-                            <p class="flex items-center text-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /></svg>
-                                **Email:** ajaycoder29
-                            </p>
-                        </li>
-                        <li>
-                            <a href="https://www.linkedin.com/in/ajay-sharma-0738b3372?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="flex items-center text-indigo-600 hover:underline">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 10h4.764a2 2 0 011.789 2.894l-3.5 7A2 2 0 0115.263 21h-4.526a2 2 0 01-1.789-2.894l3.5-7A2 2 0 0114 10zM12 2a2 2 0 00-2 2v4a2 2 0 002 2h4a2 2 0 002-2V4a2 2 0 00-2-2h-4z" /></svg>
-                                LinkedIn Profile
-                            </a>
-                        </li>
-                         <li>
-                            <a href="https://www.instagram.com/xx_ajju_xx_12?igsh=MWtnMHVxYmcxZmZkNA==" target="_blank" class="flex items-center text-indigo-600 hover:underline">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v.01M12 20v.01M3 12h.01M21 12h.01M7 7l-2 2M17 7l2 2M7 17l-2-2M17 17l2-2" /></svg>
-                                Instagram Profile
-                            </a>
-                        </li>
-                        <li>
-                            <p class="flex items-center text-gray-700">
-                                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-indigo-500 mr-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4" /></svg>
-                                **GitHub:** (Add your GitHub URL)
-                            </p>
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <h3 class="text-xl font-semibold text-gray-800 mb-3">Send an Inquiry</h3>
-                    <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" class="space-y-4">
-                        <div>
-                            <label for="name" class="block text-sm font-medium text-gray-700">Name</label>
-                            <input type="text" name="name" id="name" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500">
-                        </div>
-                        <div>
-                            <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
-                            <input type="email" name="_replyto" id="email" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500">
-                        </div>
-                        <div>
-                            <label for="description" class="block text-sm font-medium text-gray-700">Description / Opportunity</label>
-                            <textarea name="description" id="description" rows="4" required class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm p-3 focus:ring-indigo-500 focus:border-indigo-500"></textarea>
-                        </div>
-                        <button type="submit" class="w-full bg-indigo-600 text-white px-4 py-3 rounded-lg font-semibold hover:bg-indigo-700 transition">
-                            Submit Inquiry
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <footer class="bg-gray-800 text-white mt-12">
-        <div class="container mx-auto px-4 py-6 text-center">
-            <p>&copy; 2025 Ajay Sharma | Professional Data Analyst Portfolio</p>
+      <div class="flex justify-center">
+        <div class="w-56 h-56 rounded-full overflow-hidden border-4 border-indigo-500 card">
+          <!-- Replace 'ajay_photo.jpg' with your photo file -->
+          <img src="ajay_photo.jpg" alt="Ajay Sharma" class="profile-photo">
         </div>
-    </footer>
+      </div>
+    </section>
+
+    <!-- Skills -->
+    <section id="skills" class="mb-10 card">
+      <h3 class="text-2xl font-bold mb-4">🛠️ Technical Skills</h3>
+      <div class="flex flex-wrap gap-3">
+        <span class="skill-badge">SQL (Advanced)</span>
+        <span class="skill-badge">Power BI</span>
+        <span class="skill-badge">Microsoft Excel</span>
+        <span class="skill-badge">MongoDB</span>
+        <span class="skill-badge">Tableau</span>
+        <span class="skill-badge">Data Cleaning</span>
+        <span class="skill-badge">Data Visualization</span>
+        <span class="skill-badge">Dashboarding & Reporting</span>
+      </div>
+    </section>
+
+    <!-- Projects - integrated and dark-styled -->
+    <section id="projects" class="mb-10">
+      <h3 class="text-2xl font-bold mb-4">⭐ Selected Data Analytics Projects</h3>
+
+      <!-- Project 1 -->
+      <div class="card mb-4">
+        <h4 class="text-xl font-semibold" style="color:var(--accent)">1. Sales Data Cleaning & Analysis (Excel)</h4>
+        <p class="muted mt-2">Cleaned real sales data and built an executive dashboard with pivot tables and charts.</p>
+        <ul class="list-disc ml-5 mt-2 muted">
+          <li>Removed 230+ duplicate entries and fixed date formats</li>
+          <li>Handled missing revenue and outlier values</li>
+          <li>Interactive dashboard: Total Sales, Top Product, Monthly Growth</li>
+        </ul>
+        <div class="mt-3">
+          <span class="tag">Excel</span><span class="tag">Dashboard</span><span class="tag">Data Cleaning</span>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="card mb-4">
+        <h4 class="text-xl font-semibold" style="color:var(--accent)">2. Retail Store Analysis (SQL)</h4>
+        <p class="muted mt-2">Designed SQL queries and reports to help managers make data-backed decisions.</p>
+        <ul class="list-disc ml-5 mt-2 muted">
+          <li>Top-selling products, category-wise sales, monthly revenue trends</li>
+          <li>Customer purchasing frequency & cohort exploration</li>
+        </ul>
+        <div class="mt-3">
+          <span class="tag">SQL</span><span class="tag">Joins</span><span class="tag">Aggregation</span>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="card mb-4">
+        <h4 class="text-xl font-semibold" style="color:var(--accent)">3. Student Performance Dashboard (Power BI)</h4>
+        <p class="muted mt-2">Interactive Power BI report for teachers: filters for Class, Subject, Gender; trend analysis; conditional formatting to highlight weak areas.</p>
+        <div class="mt-3">
+          <span class="tag">Power BI</span><span class="tag">Visualization</span><span class="tag">Dashboard</span>
+        </div>
+      </div>
+
+      <!-- Project 4 -->
+      <div class="card mb-4">
+        <h4 class="text-xl font-semibold" style="color:var(--accent)">4. Store Product Logs (MongoDB)</h4>
+        <p class="muted mt-2">NoSQL product collection, CRUD operations, queries to find products below reorder level and filtered views.</p>
+        <div class="mt-3">
+          <span class="tag">MongoDB</span><span class="tag">NoSQL</span><span class="tag">CRUD</span>
+        </div>
+      </div>
+
+      <!-- Project 5 -->
+      <div class="card mb-4">
+        <h4 class="text-xl font-semibold" style="color:var(--accent)">5. Data Pre-Processing CLI Tool (C / C++)</h4>
+        <p class="muted mt-2">A small CLI utility to clean text datasets: trim spaces, case normalization, row counting, and export cleaned files.</p>
+        <div class="mt-3">
+          <span class="tag">C</span><span class="tag">C++</span><span class="tag">Utility</span>
+        </div>
+      </div>
+
+      <!-- Note / Links -->
+      <div class="card mt-6">
+        <p class="muted">Here you can see the code or live Power BI report.</p>
+        <p class="mt-2"><strong>GitHub:</strong> <span class="muted">https://github.com/ajaycoder29</span> &nbsp; | &nbsp; <strong>Power BI:</strong> <span class="muted">Add your published report link</span></p>
+      </div>
+    </section>
+
+    <!-- Live Dashboard -->
+    <section id="dashboard" class="mb-12 card">
+      <div class="flex items-start justify-between gap-4">
+        <div>
+          <h3 class="text-2xl font-bold">📊 Live Dashboard (Interactive)</h3>
+          <p class="muted mt-1">Upload a CSV with columns <code>Date,Sales,TopProduct,Category,Units</code> or click <strong>Use Example Data</strong>.</p>
+
+          <div class="mt-4 flex gap-3">
+            <input type="file" id="csvFile" accept=".csv" class="text-sm bg-white/5 p-2 rounded" />
+            <button id="btnExample" class="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-700 font-semibold">Use Example Data</button>
+            <button id="btnRandom" class="px-4 py-2 rounded border border-white/10 hover:bg-white/5">Randomize Data</button>
+          </div>
+        </div>
+
+        <div class="text-right muted">
+          <p class="text-sm">Export:</p>
+          <div class="mt-2">
+            <button id="exportImg" class="px-3 py-2 rounded bg-emerald-600 hover:bg-emerald-700 text-sm">Download Chart</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Charts grid -->
+      <div class="grid md:grid-cols-3 gap-6 mt-6">
+        <div class="card">
+          <h4 class="font-semibold mb-2">Monthly Sales (Trend)</h4>
+          <canvas id="salesChart" height="160"></canvas>
+        </div>
+
+        <div class="card">
+          <h4 class="font-semibold mb-2">Top Products (Units)</h4>
+          <canvas id="productChart" height="160"></canvas>
+        </div>
+
+        <div class="card">
+          <h4 class="font-semibold mb-2">Category Share (%)</h4>
+          <canvas id="categoryChart" height="160"></canvas>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section id="contact" class="card mb-10">
+      <h3 class="text-2xl font-bold">🤝 Let's Connect</h3>
+      <p class="muted mt-2">Open to collaborations and data analyst roles. Reach out below or use the form to send a quick message.</p>
+
+      <div class="grid md:grid-cols-2 gap-6 mt-6">
+        <div>
+          <h4 class="font-semibold">Profiles</h4>
+          <ul class="mt-3 space-y-2 muted">
+            <li><strong>Email:</strong> <span class="text-white">ajay361933@gmail.com</span>  <!-- replace with your email --></li>
+            <li><strong>LinkedIn:</strong> <a class="link-accent" href="https://www.linkedin.com/in/ajay-sharma-0738b3372?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">View Profile</a></li>
+            <li><strong>Instagram:</strong> <a class="link-accent" href="https://www.instagram.com/xx_ajju_xx_12?igsh=MWtnMHVxYmcxZmZkNA==" target="_blank">Instagram</a></li>
+            <li><strong>GitHub:</strong> <a class="link-accent" href="#" target="_blank">https://github.com/ajaycoder29</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-semibold">Send an Inquiry</h4>
+          <!-- Replace FORMSPREE_ENDPOINT with your real endpoint -->
+          <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" class="mt-3 space-y-3">
+            <input name="name" required placeholder="Name" class="w-full p-3 rounded bg-white/5 border border-white/6" />
+            <input name="_replyto" type="email" required placeholder="Email" class="w-full p-3 rounded bg-white/5 border border-white/6" />
+            <textarea name="description" required rows="4" placeholder="Opportunity / Message" class="w-full p-3 rounded bg-white/5 border border-white/6"></textarea>
+            <button type="submit" class="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-700 font-semibold">Submit Inquiry</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="py-6 border-t border-white/6">
+    <div class="container mx-auto px-4 text-center muted">
+      <small>&copy; 2025 Ajay Sharma | AJAY </small>
+    </div>
+  </footer>
+
+  <!-- JS: Dashboard logic -->
+  <script>
+    // ----- Utility to create charts -----
+    const ctxSales = document.getElementById('salesChart').getContext('2d');
+    const ctxProduct = document.getElementById('productChart').getContext('2d');
+    const ctxCategory = document.getElementById('categoryChart').getContext('2d');
+
+    // initial sample data
+    let chartData = {
+      labels: ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'],
+      sales: [1200,1500,1800,1600,2100,2300,2000,2200,2500,2400,2600,2800],
+      products: { 'Product A': 420, 'Product B': 300, 'Product C': 180, 'Product D': 100 },
+      categories: { 'Electronics': 45, 'Clothing': 25, 'Groceries': 20, 'Other': 10 }
+    };
+
+    // Create charts
+    const salesChart = new Chart(ctxSales, {
+      type: 'line',
+      data: {
+        labels: chartData.labels,
+        datasets: [{
+          label: 'Sales (₹)',
+          data: chartData.sales,
+          tension: 0.3,
+          borderWidth: 2,
+          borderColor: 'rgba(59,130,246,0.95)',
+          backgroundColor: 'rgba(59,130,246,0.12)',
+          fill: true,
+          pointRadius: 3
+        }]
+      },
+      options: {
+        plugins: { legend: { display: false } },
+        scales: {
+          x: { grid: { color: 'rgba(255,255,255,0.02)' } },
+          y: { beginAtZero: true, grid: { color: 'rgba(255,255,255,0.02)' } }
+        }
+      }
+    });
+
+    const productChart = new Chart(ctxProduct, {
+      type: 'bar',
+      data: {
+        labels: Object.keys(chartData.products),
+        datasets: [{ label: 'Units', data: Object.values(chartData.products), barThickness: 24 }]
+      },
+      options: { plugins: { legend: { display: false } }, scales: { y: { beginAtZero: true } } }
+    });
+
+    const categoryChart = new Chart(ctxCategory, {
+      type: 'doughnut',
+      data: {
+        labels: Object.keys(chartData.categories),
+        datasets: [{ data: Object.values(chartData.categories), hoverOffset: 6 }]
+      },
+      options: { plugins: { legend: { position: 'bottom' } } }
+    });
+
+    // ----- CSV upload and parsing -----
+    document.getElementById('csvFile').addEventListener('change', function(e){
+      const file = e.target.files[0];
+      if(!file) return;
+      Papa.parse(file, {
+        header: true,
+        dynamicTyping: true,
+        skipEmptyLines: true,
+        complete: function(results){
+          // Expecting columns: Date, Sales, TopProduct, Category, Units
+          const data = results.data;
+          // Build monthly aggregation by month label if Date exists
+          try {
+            const byMonth = {};
+            const prodAgg = {};
+            const catAgg = {};
+            for(const row of data){
+              // parse date safely
+              let d = row.Date || row.date || row.DateString || '';
+              let monthLabel = 'Unknown';
+              if(d){
+                const dt = new Date(d);
+                if(!isNaN(dt)) monthLabel = dt.toLocaleString('default',{month:'short'});
+              }
+              const sale = Number(row.Sales || row.sales || 0) || 0;
+              byMonth[monthLabel] = (byMonth[monthLabel] || 0) + sale;
+
+              const prod = row.TopProduct || row.topproduct || row.Product || 'Unknown';
+              prodAgg[prod] = (prodAgg[prod] || 0) + (Number(row.Units || row.units || 0) || 0);
+
+              const cat = row.Category || row.category || 'Other';
+              catAgg[cat] = (catAgg[cat] || 0) + (Number(row.Units || row.units || row.Sales || 0) || 0);
+            }
+            // update charts
+            updateSalesChart(Object.keys(byMonth), Object.values(byMonth));
+            updateProductChart(prodAgg);
+            updateCategoryChart(catAgg);
+          } catch (err) {
+            alert('CSV parse succeeded but data format may not match expected columns. See console for details.');
+            console.error(err, results);
+          }
+        }
+      });
+    });
+
+    // ----- Example / Randomize handlers -----
+    document.getElementById('btnExample').addEventListener('click', function(){
+      updateSalesChart(chartData.labels, chartData.sales);
+      updateProductChart(chartData.products);
+      updateCategoryChart(chartData.categories);
+    });
+
+    document.getElementById('btnRandom').addEventListener('click', function(){
+      const randomSales = chartData.labels.map(()=> Math.floor(900 + Math.random()*2200));
+      const randProd = { 'Product A': Math.floor(Math.random()*500), 'Product B': Math.floor(Math.random()*400), 'Product C': Math.floor(Math.random()*300), 'Product D': Math.floor(Math.random()*200) };
+      const randCat = { 'Electronics': Math.floor(Math.random()*60), 'Clothing': Math.floor(Math.random()*30), 'Groceries': Math.floor(Math.random()*20) , 'Other': Math.floor(Math.random()*10) };
+      updateSalesChart(chartData.labels, randomSales);
+      updateProductChart(randProd);
+      updateCategoryChart(randCat);
+    });
+
+    // ----- Update functions -----
+    function updateSalesChart(labels, data){
+      salesChart.data.labels = labels;
+      salesChart.data.datasets[0].data = data;
+      salesChart.update();
+    }
+    function updateProductChart(obj){
+      productChart.data.labels = Object.keys(obj);
+      productChart.data.datasets[0].data = Object.values(obj);
+      productChart.update();
+    }
+    function updateCategoryChart(obj){
+      categoryChart.data.labels = Object.keys(obj);
+      categoryChart.data.datasets[0].data = Object.values(obj);
+      categoryChart.update();
+    }
+
+    // ----- Export image of the first chart (sales) -----
+    document.getElementById('exportImg').addEventListener('click', function(){
+      const url = salesChart.toBase64Image();
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = 'sales-chart.png';
+      a.click();
+    });
+
+    // Initialize with example data
+    document.getElementById('btnExample').click();
+  </script>
 
 </body>
-
 </html>
