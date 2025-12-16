@@ -62,8 +62,8 @@
         </p>
 
         <ul class="space-y-2">
-          <li><strong class="text-white">What I do:</strong> Data cleaning & preprocessing, dashboarding, SQL & database design, exploratory analysis, reporting for stakeholders.</li>
-          <li><strong class="text-white">Focus on:</strong> Retail & e-commerce analytics, sales analysis, student performance dashboards, small business reporting.</li>
+          <li><strong class="text-white">What I offer:</strong> Data cleaning & preprocessing, dashboarding, SQL & database design, exploratory analysis, reporting for stakeholders.</li>
+          <li><strong class="text-white">Industry focus:</strong> Retail & e-commerce analytics, sales analysis, student performance dashboards, small business reporting.</li>
         </ul>
 
         <div class="mt-6 flex gap-3">
@@ -165,11 +165,11 @@
       <div class="flex items-start justify-between gap-4">
         <div>
           <h3 class="text-2xl font-bold">📊 Live Dashboard (Interactive)</h3>
-          <p class="muted mt-1">Upload a CSV with columns <code>Date,Sales,TopProduct,Category,Units</code> or click <strong>Use Example Data</strong>.</p>
+          <p class="muted mt-1"> upload a csv file <code>Date,Sales,TopProduct,Category,Units</code> or click <strong>Use Example Data</strong>.</p>
 
           <div class="mt-4 flex gap-3">
-            <input type="file" id="dashboard_csv" accept=".csv" class="text-sm bg-white/5 p-2 rounded" />
-            <button id="btnExample" class="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-700 font-semibold">Use Example Data</button>
+            <input type="file" id="csvFile" accept=".csv" class="text-sm bg-white/5 p-2 rounded" />
+            <button id="btnexample" class="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-700 font-semibold">Use Example Data</button>
             <button id="btnRandom" class="px-4 py-2 rounded border border-white/10 hover:bg-white/5">Randomize Data</button>
           </div>
         </div>
@@ -202,42 +202,58 @@
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="card mb-10">
-      <h3 class="text-2xl font-bold">🤝 Let's Connect</h3>
-      <p class="muted mt-2">Open to collaborations and data analyst roles. Reach out below or use the form to send a quick message.</p>
+    <div class="card">
+    <h2 class="text-2xl font-bold mb-3">🤝 Contact Me</h2>
+    <p class="text-gray-400 mb-4">
+      Fill the form or download my resume.
+    </p>
 
-      <div class="grid md:grid-cols-2 gap-6 mt-6">
-        <div>
-          <h4 class="font-semibold">Profiles</h4>
-          <ul class="mt-3 space-y-2 muted">
-            <li><strong>Email:</strong> <span class="text-white">ajay361933@gmail.com</span>  <!-- replace with your email --></li>
-            <li><strong>LinkedIn:</strong> <a class="link-accent" href="https://www.linkedin.com/in/ajay-sharma-0738b3372?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank">View Profile</a></li>
-            <li><strong>Instagram:</strong> <a class="link-accent" href="https://www.instagram.com/xx_ajju_xx_12?igsh=MWtnMHVxYmcxZmZkNA==" target="_blank">Instagram</a></li>
-            <li><strong>GitHub:</strong> <a class="link-accent" href="#" target="_blank">https://github.com/ajaycoder29</a></li>
-          </ul>
-        </div>
+    <div class="grid md:grid-cols-2 gap-6">
 
-        <div>
-          <h4 class="font-semibold">Send an Inquiry</h4>
-          <!-- Replace FORMSPREE_ENDPOINT with your real endpoint -->
-          <form action="https://formspree.io/f/YOUR_FORMSPREE_ENDPOINT" method="POST" class="mt-3 space-y-3">
-            <input name="name" required placeholder="Name" class="w-full p-3 rounded bg-white/5 border border-white/6" />
-            <input name="_replyto" type="email" required placeholder="Email" class="w-full p-3 rounded bg-white/5 border border-white/6" />
-            <textarea name="description" required rows="4" placeholder="Opportunity / Message" class="w-full p-3 rounded bg-white/5 border border-white/6"></textarea>
-            <button type="submit" class="px-4 py-2 rounded bg-indigo-600 hover:bg-indigo-700 font-semibold">Submit Inquiry</button>
-          </form>
-        </div>
+      <!-- LEFT SIDE -->
+      <div>
+        <p><b>Email:</b> ajay361933@gmail.com</p>
+        <p class="mt-2">
+          <b>LinkedIn:</b>
+          <a href="https://www.linkedin.com/in/ajay-sharma-0738b3372" class="text-cyan-400 underline" target="_blank">
+            View Profile
+          </a>
+        </p>
+
+        <!-- RESUME BUTTON -->
+        <a href="resume.pdf" target="_blank"
+           class="inline-block mt-6 px-5 py-3 bg-green-600 rounded hover:bg-green-700">
+          📄 Download Resume
+        </a>
       </div>
-    </section>
 
-  </main>
+      <!-- RIGHT SIDE FORM -->
+      <div>
+        <form
+          action="https://formspree.io/f/meoybabz"
+          method="POST"
+          class="space-y-3"
+        >
+          <input type="text" name="name" required placeholder="Your Name"
+                 class="w-full p-3 rounded bg-gray-800">
 
-  <footer class="py-6 border-t border-white/6">
-    <div class="container mx-auto px-4 text-center muted">
-      <small>&copy; 2025 Ajay Sharma | AJAY </small>
+          <input type="email" name="email" required placeholder="Your Email"
+                 class="w-full p-3 rounded bg-gray-800">
+
+          <textarea name="message" rows="4" required placeholder="Your Message"
+                    class="w-full p-3 rounded bg-gray-800"></textarea>
+
+          <input type="hidden" name="_next" value="success.html">
+
+          <button type="submit"
+                  class="px-5 py-2 bg-blue-600 rounded hover:bg-blue-700">
+            Send Message
+          </button>
+        </form>
+      </div>
+
     </div>
-  </footer>
-
+  </div>
   <!-- JS: Dashboard logic -->
   <script>
     // ----- Utility to create charts -----
@@ -389,4 +405,3 @@
 
 </body>
 </html>
-
